@@ -112,14 +112,20 @@ function saveToLocaleStorege(todo){
 }
 
 function getTodos(){
-  console.log("traing to lowd")
+  console.log("traing to load")
+  console.log("first"+localStorage.getItem("todos"));
   let todos;
   if(localStorage.getItem('todos')===null){
     todos=[];
   }else{
     todos = JSON.parse(localStorage.getItem("todos"));
+    console.log(localStorage.getItem("todos"));
   }
   //<----------------------------------------------------------------
+  //toRemove.remove();
+  const todoss = todoList.childNodes;
+  todoss.forEach(function(todo) {
+    todo.remove();})
   todos.forEach(function(todo){
     addingElement(todo)
   });
